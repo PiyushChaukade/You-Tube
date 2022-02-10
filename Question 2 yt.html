@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+    <title>Youtube Q2</title>
+
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus{
+    outline: none;
+}
+
+body{
+    position: relative;
+    background: white;
+    font-family: 'roboto', sans-serif;
+}
+
+.bar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 30px
+  
+}
+
+.toggle-btn{
+    width: 20px;
+    height: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-btn span{
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #979797;
+}
+
+.toggle-btn span:nth-child(1){
+    top: 0;
+}
+
+.toggle-btn span:nth-child(3){
+    top: 100%;
+}
+
+.logo{
+    height: 30px;
+    margin: -10px 30px 0;
+}
+
+.search-box{
+    position: relative;
+   
+    width: 50%;
+    height: 45px;
+    display: flex;
+    margin-left: 100px;
+}
+
+.search-bar{
+    
+    width: 100%;
+    height: 100%;
+    border: 2px solid #dbdbdb;
+    padding: 0 20px;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+.search-btn{
+    width: 15%;
+    height: 100%;
+    background: #f0f0f0;
+    border: 2px solid #dbdbdb;
+    padding: 5px 0;
+    font-size: 20px;
+    border-left: none;
+    color: grey;
+}
+
+
+
+.user-options{
+    height: 35px;
+    display: flex;
+    margin-left:auto;
+    align-items: center;
+}
+
+
+
+.dp{
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 20px;
+}
+
+.dp img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* left-bar */
+
+.left-bar{
+    position:absolute;
+    min-width: 80px;
+    width: 100px;
+    height: calc(100vh - 60px);
+    background: #fff;
+    padding-right: 20px;
+}
+
+.links{
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin: auto;
+    align-items: center;
+    text-transform: capitalize;
+    color: #242424;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.links img{
+    height: 25px;
+    margin-right: 20px;
+}
+
+.links:hover{
+    background: rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* filter */
+
+.upfilters{
+    position: fixed;
+    left: 100px;
+    top: 60px;
+    width: fit-content;
+    height: 60px;
+    background: #fff;
+    border-top: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    overflow: scroll;
+}
+
+.upfilters::-webkit-scrollbar{
+    display: none;
+}
+
+.upfilter{
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: #f0f0f0;
+    border: 1px solid #dbdbdb;
+    text-transform: capitalize;
+    margin-right: 10px;
+    color: #242424;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.upfilter.active{
+    color: #fff;
+    background: #242424;
+}
+#micro{
+  background-color:#f0f0f0;
+       height: 40px ;
+       width: 40px;
+       font-size: 20px;
+       margin-left: 20px;
+       padding: 10px;
+      
+       text-align: center;    
+       vertical-align: top;
+       border-radius: 50%;
+    }
+    #box{
+        margin-left: 30px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #bell{
+        margin-left: 30px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    #show{
+       
+    border: 1px solid white;
+       height: 900px;
+       width: 1230px;
+       margin-left: 110px;   
+       margin-top: 80px;
+    }
+    #show1{
+       
+        height:700px ;
+        width: 1210px;
+        margin-top: 50px;
+
+        display: grid !important;
+    grid-template-columns: auto auto auto !important;
+    grid-gap: 20px;
+    }
+    #divif{
+   
+  
+    text-align: center;
+
+}
+
+    </style>
+
+</head>
+<body>
+
+    <nav class="bar">
+        <div class="toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <img src="YTimages/logo.PNG" class="logo" alt="">
+        <div class="search-box">
+            <input type="text" class="search-bar" placeholder="search" id="search">
+            <button class="search-btn" id="go"><i class="fa fa-search"></i></button>
+        </div>
+        
+        <span><div id="micro"><i  id="center"class="fas fa-microphone"></div></i></span>
+
+        <div class="user-options">
+            
+            <span id="video"><i class="fas fa-video"></i></span>
+              
+       <span id="box"><i class="fas fa-th"></i></span>
+       
+       <span id="bell"><i class="far fa-bell"></i></span>
+            <div class="dp">
+                <span id="p"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGIV44LAaB-CvOCGHuvCkwTjzfTudObcG3oQ&usqp=CAU"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- leftbar -->
+    <div class="left-bar">
+        <a href="#" class="links active"><img src="YTimages/home.jpg" alt=""><br>Home<br></a><br>
+       <a href="#" class="links"><img src="YTimages/explore.PNG" alt=""><br>Explore</a><br>
+        <a href="#" class="links"><img src="YTimages/subscription.PNG" alt=""><br>Subscription</a><br>
+        <a href="#" class="links"><img src="YTimages/library.PNG" alt=""><br>Library</a><br>
+    </div>
+
+    <!-- upfilters -->
+    <div class="upfilters">
+        <button class="upfilter active">All</button>
+        <button class="upfilter">Mixes</button>
+        <button class="upfilter">Music</button>
+        <button class="upfilter">C++</button>
+        <button class="upfilter">Courses</button>
+        <button class="upfilter">Jethala</button>
+        <button class="upfilter">Programming classes</button>
+        <button class="upfilter">Fear files</button>
+        <button class="upfilter">Honey Singh</button>
+        <button class="upfilter">Elon Musk</button>
+        <button class="upfilter">Artificial intelligence</button>
+    </div>
+
+   
+  <div id="show">
+      <div id="show1"></div>
+  </div>
+</body>
+</html>
+<script>
+
+
+
+
+async function back(){
+    //https://youtube.googleapis.com/youtube/v3/search?location=India&maxResults=20&key=[YOUR_API_KEY]
+      
+    try{
+       let key="AIzaSyDMP439WZEaRwZE6hzjU8yLx743TX21Xv8";
+       //https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&key=[YOUR_API_KEY]
+  
+   let response =await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=50&key=${key}`);
+   
+   let backdata=await response.json();
+   console.log(backdata)
+   let arrayvideos=backdata.items;
+console.log("backdata",backdata)
+   appendata(backdata.items)
+   }catch(err){
+       console.log(err)
+   }
+   }
+ 
+   back()
+
+ const appendata =(data) =>{
+   document.getElementById("show1").innerHTML="";
+   data.forEach(({id:{ videoId } , snippet}) => {
+           console.log(videoId)
+   console.log(snippet.thumbnails.medium.url)
+
+           var url=snippet.thumbnails.medium.url;
+           let div=document.createElement("div");
+           div.setAttribute("id","divif")
+   
+           let img=document.createElement("img")
+           img.src=url;
+
+           var h51=document.createElement("h5")
+             h51.innerText=snippet.channelTitle;
+           
+           var h5=document.createElement("h5")
+           h5.innerText=snippet.title;
+
+           let br=document.createElement("br");
+
+           div.append(img,h51,br,h5);
+   
+           show1.append(div)
+   
+       });
+    
+   }
+
+
+
+
+
+
+    document.getElementById("go").addEventListener("click",videos);
+   //https://youtube.googleapis.com/youtube/v3/search?q=tesla&key=[YOUR_API_KEY]
+   
+   async function videos(){
+      
+   try{
+       let key="AIzaSyDMP439WZEaRwZE6hzjU8yLx743TX21Xv8";
+   
+   let input=document.getElementById("search").value;
+   let response =await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${input}&key=${key}&type=video&maxResults=20&part=snippet`);
+   
+   let data=await response.json();
+   console.log(data)
+   let arrayvideos=data.items;
+   appendvideos(data.items)
+   }catch(err){
+       console.log(err)
+   }
+   }
+   const appendvideos = (arr) => {
+   document.getElementById("show1").innerHTML="";
+       arr.forEach(({id:{ videoId } , snippet}) => {
+           console.log(videoId)
+   console.log(snippet.thumbnails.medium.url)
+
+           var url=snippet.thumbnails.medium.url;
+           let div=document.createElement("div");
+           div.setAttribute("id","divif")
+   
+           let img=document.createElement("img")
+          
+           img.src=url;
+           
+         
+     
+           var h5=document.createElement("h5")
+           h5.innerText=snippet.title;
+   
+           let videodata={
+               snippet,
+               videoId
+           };
+   
+           div.onclick=() =>{
+               showvideo(videodata );
+           }
+   
+           div.append(img,h5);
+   
+           show1.append(div)
+   
+       });
+    
+   }
+   
+   const showvideo=( videodata)=>{
+       
+       localStorage.setItem("videodata",JSON.stringify(videodata))
+       window.location.href="Q1 ytpart2.html"
+   }
+   </script>
